@@ -73,12 +73,19 @@ export class LinkedList {
 
     findValue(key){
         for(const node of this.list){
-            console.log("hello")
             if(node.key === key){
                 return node.value
             }
         }
         return null
+    }
+
+    editValue(key, value){
+        for(const node of this.list){
+            if(node.key === key){
+                node.value = value
+            }
+        }
     }
 
     toString(){
