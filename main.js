@@ -40,16 +40,18 @@ class HashMap {
         }
     }
 
-    // get(key){
-    //     const hashCode = this.hash(key)
-    //     if(this.buckets[hashCode] !== undefined){
-    //         const index = this.buckets[hashCode].find()
-    //     }
-    // }
+    get(key){
+        const hashCode = this.hash(key)
+        if(this.buckets[hashCode] !== undefined){
+            return this.buckets[hashCode].findValue(key)
+        } 
+        return null
+    }
 }
 
 const hash = new HashMap()
 
 hash.set('name', 'yonatan')
+console.log(hash.get('sui'))
 
 console.log(hash.buckets)
