@@ -33,17 +33,17 @@ class HashMap {
         //If no list in the bucket
         if(this.buckets[hashCode] === undefined){
             const list = new LinkedList()
-            list.append({[key]:value})
+            list.append(key, value)
             this.buckets[hashCode] = list
         } else {
-            this.buckets[hashCode].append(value)
+            this.buckets[hashCode].append(key, value)
         }
     }
 
     // get(key){
     //     const hashCode = this.hash(key)
     //     if(this.buckets[hashCode] !== undefined){
-            
+    //         const index = this.buckets[hashCode].find()
     //     }
     // }
 }
