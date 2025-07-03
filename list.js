@@ -65,7 +65,7 @@ export class LinkedList {
     findValue(key){
         for(const node of this.list){
             if(node.key === key){
-                return this.list.value
+                return this.list[this.list.indexOf(node)].value
             }
         }
         return null
