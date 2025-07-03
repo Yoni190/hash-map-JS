@@ -29,16 +29,23 @@ class HashMap {
         if(size > max){
             this.buckets.length = this.buckets.length * 2
         }
-        let hashCode = this.hash(key)
+        const hashCode = this.hash(key)
         //If no list in the bucket
         if(this.buckets[hashCode] === undefined){
             const list = new LinkedList()
-            list.append(value)
+            list.append({[key]:value})
             this.buckets[hashCode] = list
         } else {
             this.buckets[hashCode].append(value)
         }
     }
+
+    // get(key){
+    //     const hashCode = this.hash(key)
+    //     if(this.buckets[hashCode] !== undefined){
+            
+    //     }
+    // }
 }
 
 const hash = new HashMap()
