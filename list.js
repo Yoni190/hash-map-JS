@@ -74,10 +74,12 @@ export class LinkedList {
 }
 
 class Node {
+    key = null
     value = null
     nextNode = null
 
     constructor(value, nextNode){
+        this.key = key
         this.value = value
         this.nextNode = nextNode
     }
