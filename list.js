@@ -2,9 +2,9 @@ export class LinkedList {
 
     list = []
 
-    append(value){
+    append(key, value){
 
-        const node = new Node(value, null)
+        const node = new Node(key, value, null)
 
         if(this.list.length > 0){
             this.list.at(-1).nextNode = node
@@ -13,14 +13,14 @@ export class LinkedList {
         this.list.push(node)
     }
 
-    prepend(value){
+    prepend(key, value){
         let pointer = null
 
         if(this.list.length > 0){
             pointer = this.list[0]
         }
         
-        const node = new Node(value, pointer)
+        const node = new Node(key, value, pointer)
         this.list.unshift(node)
     }
 
@@ -62,6 +62,15 @@ export class LinkedList {
         return null
     }
 
+    findValue(key){
+        for(const node of this.list){
+            if(node.key === key){
+                return this.list.value
+            }
+        }
+        return null
+    }
+
     toString(){
         let string = "";
         for(const node of this.list){
@@ -78,7 +87,7 @@ class Node {
     value = null
     nextNode = null
 
-    constructor(value, nextNode){
+    constructor(key, value, nextNode){
         this.key = key
         this.value = value
         this.nextNode = nextNode
