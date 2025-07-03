@@ -47,6 +47,14 @@ class HashMap {
         } 
         return null
     }
+
+    has(key){
+        const hashCode = this.hash(key)
+        if(this.buckets[hashCode] !== undefined){
+            return this.buckets[hashCode].containsKey(key)
+        } 
+        return false
+    }
 }
 
 const hash = new HashMap()
@@ -54,4 +62,5 @@ const hash = new HashMap()
 hash.set('name', 'yonatan')
 console.log(hash.get('sui'))
 
+console.log(hash.has('sui'))
 console.log(hash.buckets)
