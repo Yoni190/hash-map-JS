@@ -19,12 +19,18 @@ class HashMap {
 
     set(key, value){
         let hashCode = this.hash(key)
-        this.bucket[hashCode] 
+        if(this.bucket[hashCode] === undefined){
+            const list = new LinkedList()
+            list.append(value)
+            this.bucket[hashCode] = list
+        } else {
+            this.bucket[hashCode].append(value)
+        }
     }
 }
 
 const hash = new HashMap()
-const list = new LinkedList()
-list.append(5)
-console.log(list.toString())
-console.log(hash.hash("sita"))
+
+hash.set('name', 'yonatan')
+
+console.log(hash.bucket)
