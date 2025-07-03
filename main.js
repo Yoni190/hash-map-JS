@@ -3,7 +3,7 @@ import { LinkedList } from "./list.js";
 class HashMap {
     load_factor = 0.8
     capacity = 16
-    bucket = new Array(this.capacity)
+    buckets = new Array(this.capacity)
 
 
     hash(key) {
@@ -18,13 +18,25 @@ class HashMap {
         } 
 
     set(key, value){
+        //Check if expansion of bucket is needed
+        const max = this.load_factor * this.capacity
+        let size = 0
+        this.buckets.forEach((bucket)=>{
+            if(bucket !== undefined){
+                size += bucket.size()
+            }
+        })
+        if(size > max){
+            this.buckets.length = this.buckets.length * 2
+        }
         let hashCode = this.hash(key)
-        if(this.bucket[hashCode] === undefined){
+        //If no list in the bucket
+        if(this.buckets[hashCode] === undefined){
             const list = new LinkedList()
             list.append(value)
-            this.bucket[hashCode] = list
+            this.buckets[hashCode] = list
         } else {
-            this.bucket[hashCode].append(value)
+            this.buckets[hashCode].append(value)
         }
     }
 }
@@ -33,4 +45,4 @@ const hash = new HashMap()
 
 hash.set('name', 'yonatan')
 
-console.log(hash.bucket)
+console.log(hash.buckets)
