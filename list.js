@@ -53,6 +53,15 @@ export class LinkedList {
         return false
     }
 
+    containsKey(key){
+        for(const node of this.list) {
+            if(node.key === key){
+                return true
+            }
+        }
+        return false
+    }
+
     find(value){
         for(const node of this.list){
             if(node.value === value){
