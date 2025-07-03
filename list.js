@@ -1,6 +1,10 @@
 export class LinkedList {
 
-    list = []
+    constructor(){
+        this.head = null
+        this.tail = null
+    }
+
 
     append(key, value){
 
@@ -86,6 +90,10 @@ export class LinkedList {
                 node.value = value
             }
         }
+    }
+
+    removeAt(index){
+
     }
 
     toString(){
