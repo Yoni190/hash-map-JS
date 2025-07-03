@@ -36,7 +36,11 @@ class HashMap {
             list.append(key, value)
             this.buckets[hashCode] = list
         } else {
-            this.buckets[hashCode].append(key, value)
+            if(this.buckets[hashCode].containsKey(key)){
+                this.buckets[hashCode].editValue(key, value)
+            } else {
+                this.buckets[hashCode].append(key, value)
+            }
         }
     }
 
@@ -60,6 +64,7 @@ class HashMap {
 const hash = new HashMap()
 
 hash.set('name', 'yonatan')
+hash.set('name', 'test')
 console.log(hash.get('sui'))
 
 console.log(hash.has('sui'))
