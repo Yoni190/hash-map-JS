@@ -59,13 +59,24 @@ class HashMap {
         } 
         return false
     }
+    
+    remove(key){
+        const hashCode = this.hash(key)
+        this.buckets[hashCode].removeKey(key)
+    }
 }
 
 const hash = new HashMap()
 
-hash.set('name', 'yonatan')
-hash.set('name', 'test')
-console.log(hash.get('sui'))
+hash.set("stone", 'yonatan')
+hash.set("sui", 'ronaldo')
 
-console.log(hash.has('sui'))
+hash.remove('sui')
+
+// hash.set('name', 'test')
+// hash.set('name', 'suii')
+// hash.set('name', 'sdl')
+// console.log(hash.get('sui'))
+
+// console.log(hash.has('sui'))
 console.log(hash.buckets)
