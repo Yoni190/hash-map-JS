@@ -5,90 +5,119 @@ export class LinkedList {
         this.tail = null
     }
 
-
     append(key, value){
-
-        const node = new Node(key, value, null)
-
-        if(this.list.length > 0){
-            this.list.at(-1).nextNode = node
+        if(this.head === null){
+            const node = new Node(key, value, null)
+            this.head = node
+            this.tail = node
+        } else {
+            const node = new Node(key, value, this.head)
+            this.head = node
         }
-
-        this.list.push(node)
     }
 
     prepend(key, value){
-        let pointer = null
-
-        if(this.list.length > 0){
-            pointer = this.list[0]
+        if(this.tail === null){
+            const node = new Node(key, value, null)
+            this.head = node
+            this.tail = node
+        } else {
+            const node = new Node(key, value, null)
+            this.tail.nextNode = node
+            this.tail = node
         }
-        
-        const node = new Node(key, value, pointer)
-        this.list.unshift(node)
     }
 
     size(){
-        return this.list.length
+        let listSize = 0
+        let temp = this.head
+        while(temp !== null){
+            listSize++
+            temp = temp.nextNode
+        }
+        return listSize
     }
 
-    head(){
-        return this.list[0]
+    getHead(){
+        return this.head
     }
 
     tail(){
-        return this.list.at(-1);
+        return this.tail;
     }
 
     at(index){
-        return this.list[index]
+        let t = 0
+        let temp = this.head
+        while(t !== index){
+            temp = temp.nextNode
+            t++
+        }
+        return temp
     }
 
     pop(){
-        this.list.pop();
+        let temp = this.head
+        if(temp.nextNode === null){
+            this.head = null
+        } else{
+            while(temp.nextNode.nextNode !== null){
+                temp = temp.nextNode
+            }
+            temp.nextNode = null
+        }
     }
 
     contains(value){
-        for(const node of this.list) {
-            if(node.value === value){
+        let temp = this.head
+        while(temp !== null){
+            if(temp.value === value){
                 return true
             }
+            temp = temp.nextNode
         }
         return false
     }
 
     containsKey(key){
-        for(const node of this.list) {
-            if(node.key === key){
+        let temp = this.head
+        while(temp !== null){
+            if(temp.key === key){
                 return true
             }
+            temp = temp.nextNode
         }
         return false
     }
 
     find(value){
-        for(const node of this.list){
-            if(node.value === value){
-                return this.list.indexOf(node)
-            }
+        let temp = this.head
+        let index = 0
+        while(temp.value !== value){
+            index++
+            temp = temp.nextNode
         }
-        return null
+        return index
     }
 
     findValue(key){
-        for(const node of this.list){
-            if(node.key === key){
-                return node.value
-            }
+        let temp = this.head
+        let index = 0
+        while(temp.key !== key){
+            index++
+            temp = temp.nextNode
         }
-        return null
+        return index
     }
 
     editValue(key, value){
-        for(const node of this.list){
-            if(node.key === key){
-                node.value = value
+        let temp = this.head
+        while(temp !== null){
+            if(temp.key === key){
+                temp.value = value
+                return true
             }
+            temp = temp.nextNode
         }
     }
 
@@ -97,11 +126,12 @@ export class LinkedList {
     }
 
     toString(){
-        let string = "";
-        for(const node of this.list){
-            string += `( ${node.value} ) -> `
+        let string = ""
+        let temp = this.head
+        while(temp !== null){
+            string += `( ${temp.value} ) -> `
+            temp = temp.nextNode
         }
-
         string += " null"
         return string
     }
