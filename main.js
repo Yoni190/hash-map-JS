@@ -71,11 +71,22 @@ const hash = new HashMap()
 hash.set("stone", 'yonatan')
 hash.set("sui", 'ronaldo')
 
-hash.remove('sui')
 
-// hash.set('name', 'test')
-// hash.set('name', 'suii')
-// hash.set('name', 'sdl')
+hash.set('sf', 'test')
+hash.set('aef', 'suii')
+hash.set('cdad', 'sdl')
+
+hash.set('fscs', 'test')
+hash.set('ewrw', 'suii')
+hash.set('423', 'sdl')
+
+hash.set('gwfc', 'test')
+hash.set('ewfwec', 'suii')
+hash.set('fvscsfd', 'sdl')
+
+hash.set('csdasdc', 'test')
+hash.set('erwqdsxxaxaDSD', 'suii')
+hash.set('KHJGHJgh', 'sdl')
 // console.log(hash.get('sui'))
 
 // console.log(hash.has('sui'))
