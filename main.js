@@ -89,6 +89,16 @@ class HashMap {
         })
         return keysArray.flat()
     }
+
+    values(){
+        let valuesArray = []
+        this.buckets.forEach((bucket)=>{
+            if(bucket !== undefined){
+                valuesArray.push(bucket.getValues())
+            }
+        })
+        return valuesArray.flat()
+    }
 }
 
 const hash = new HashMap()
@@ -118,4 +128,5 @@ hash.set('KHJGHJgh', 'sdl')
 
 console.log(hash.length())
 console.log(hash.keys())
+console.log(hash.values())
 console.log(hash.buckets)
