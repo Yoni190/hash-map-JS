@@ -1,7 +1,7 @@
 import { LinkedList } from "./list.js";
 
 class HashMap {
-    load_factor = 0.8
+    load_factor = 0.75
     capacity = 16
     buckets = new Array(this.capacity)
 
@@ -111,33 +111,29 @@ class HashMap {
     }
 }
 
-const hash = new HashMap()
+const test = new HashMap()
+ test.set('apple', 'red')
+ test.set('banana', 'yellow')
+ test.set('carrot', 'orange')
+ test.set('dog', 'brown')
+ test.set('elephant', 'gray')
+ test.set('frog', 'green')
+ test.set('grape', 'purple')
+ test.set('hat', 'black')
+ test.set('ice cream', 'white')
+ test.set('jacket', 'blue')
+ test.set('kite', 'pink')
+ test.set('lion', 'golden')
 
-hash.set("stone", 'yonatan')
-hash.set("sui", 'ronaldo')
+  test.set('jacket', 'csd')
+ test.set('kite', 'wefc')
+ test.set('lion', 'sdf32')
 
 
-hash.set('sf', 'test')
-hash.set('aef', 'suii')
-hash.set('cdad', 'sdl')
+ //Not expanding
+  test.set('moon', 'silver')
 
-hash.set('fscs', 'test')
-hash.set('ewrw', 'suii')
-hash.set('423', 'sdl')
 
-hash.set('gwfc', 'test')
-hash.set('ewfwec', 'suii')
-hash.set('fvscsfd', 'sdl')
+ console.log(test.length())
 
-hash.set('csdasdc', 'test')
-hash.set('erwqdsxxaxaDSD', 'suii')
-hash.set('KHJGHJgh', 'sdl')
-// console.log(hash.get('sui'))
-
-// console.log(hash.has('sui'))
-
-console.log(hash.length())
-console.log(hash.keys())
-console.log(hash.values())
-console.log(hash.entries())
-console.log(hash.buckets)
+ console.log(test.buckets)
