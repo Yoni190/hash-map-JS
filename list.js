@@ -144,6 +144,15 @@ export class LinkedList {
         }
     }
 
+    getKeys(){
+        let keys = []
+        let temp = this.head
+        while(temp !== null) {
+            keys.push(temp.key)
+        }
+        return keys
+    }
+
     toString(){
         let string = ""
         let temp = this.head
