@@ -149,8 +149,19 @@ export class LinkedList {
         let temp = this.head
         while(temp !== null) {
             keys.push(temp.key)
+            temp = temp.nextNode
         }
         return keys
+    }
+
+    getValues(){
+        let values = []
+        let temp = this.head
+        while(temp !== null) {
+            values.push(temp.value)
+            temp = temp.nextNode
+        }
+        return values
     }
 
     toString(){
