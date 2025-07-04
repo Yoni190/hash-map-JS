@@ -28,6 +28,7 @@ class HashMap {
         })
         if(size > max){
             this.buckets.length = this.buckets.length * 2
+            this.capacity = this.buckets.length
         }
         const hashCode = this.hash(key)
         //If no list in the bucket
@@ -74,6 +75,10 @@ class HashMap {
         }
         return count
     }
+
+    clear(){
+        this.buckets = new Array(this.capacity)
+    }
 }
 
 const hash = new HashMap()
@@ -102,4 +107,5 @@ hash.set('KHJGHJgh', 'sdl')
 // console.log(hash.has('sui'))
 
 console.log(hash.length())
+console.log(hash.clear())
 console.log(hash.buckets)
