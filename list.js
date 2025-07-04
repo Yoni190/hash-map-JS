@@ -102,12 +102,12 @@ export class LinkedList {
 
     findValue(key){
         let temp = this.head
-        let index = 0
-        while(temp.key !== key){
-            index++
+        while(temp !== null){
+            if(temp.key === key){
+                return temp.value
+            }
             temp = temp.nextNode
         }
-        return index
     }
 
     editValue(key, value){
@@ -121,8 +121,26 @@ export class LinkedList {
         }
     }
 
-    removeAt(index){
+    removeKey(key){
+        let temp = this.head
+        while(temp !== null){
+            if(this.head.key === key){
+                if(this.head.nextNode === null){
+                    this.head = null
+                    return true
+                } else {
+                    this.head = this.head.nextNode
+                    return true
+                }
 
+            } else {
+                if(temp.nextNode.key === key){
+                    temp.nextNode = temp.nextNode.nextNode
+                    return true
+                }
+            }
+            temp = temp.nextNode
+        }
     }
 
     toString(){
