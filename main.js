@@ -79,6 +79,16 @@ class HashMap {
     clear(){
         this.buckets = new Array(this.capacity)
     }
+
+    keys(){
+        let keysArray = []
+        this.buckets.forEach((bucket)=>{
+            if(bucket !== undefined){
+                keysArray.push(bucket.getKeys())
+            }
+        })
+        return keysArray.flat()
+    }
 }
 
 const hash = new HashMap()
@@ -107,5 +117,5 @@ hash.set('KHJGHJgh', 'sdl')
 // console.log(hash.has('sui'))
 
 console.log(hash.length())
-console.log(hash.clear())
+console.log(hash.keys())
 console.log(hash.buckets)
