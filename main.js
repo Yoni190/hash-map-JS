@@ -64,6 +64,16 @@ class HashMap {
         const hashCode = this.hash(key)
         this.buckets[hashCode].removeKey(key)
     }
+
+    length(){
+        let count = 0
+        for(const bucket of this.buckets){
+            if(bucket !== undefined){
+                count += bucket.size()
+            }
+        }
+        return count
+    }
 }
 
 const hash = new HashMap()
@@ -90,4 +100,6 @@ hash.set('KHJGHJgh', 'sdl')
 // console.log(hash.get('sui'))
 
 // console.log(hash.has('sui'))
+
+console.log(hash.length())
 console.log(hash.buckets)
