@@ -127,6 +127,7 @@ export class LinkedList {
             if(this.head.key === key){
                 if(this.head.nextNode === null){
                     this.head = null
+                    this.tail = null
                     return true
                 } else {
                     this.head = this.head.nextNode
