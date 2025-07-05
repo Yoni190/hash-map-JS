@@ -26,7 +26,7 @@ class HashMap {
                 size += bucket.size()
             }
         })
-        if(size > max){
+        if(size >= max){
             this.buckets.length = this.buckets.length * 2
             this.capacity = this.buckets.length
         }
@@ -130,6 +130,7 @@ const test = new HashMap()
  test.set('lion', 'sdf32')
 
 
+ console.log(test.length())
  //Not expanding
   test.set('moon', 'silver')
 
